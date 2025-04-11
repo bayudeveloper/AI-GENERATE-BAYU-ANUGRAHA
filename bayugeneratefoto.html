@@ -59,6 +59,10 @@
       font-size: 14px;
       color: #aaa;
     }
+    footer a {
+      color: #00c6ff;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
@@ -71,7 +75,8 @@
   <div class="gallery" id="gallery"></div>
 
   <footer>
-    Development by <strong>Bayu Anugraha</strong> - WhatsApp Development: <a href="https://wa.me/62895406178006" style="color:#00c6ff;text-decoration:none;">62895406178006</a>
+    Development by <strong>Bayu Anugraha</strong> - WhatsApp Development:
+    <a href="https://wa.me/62895406178006" target="_blank">62895406178006</a>
   </footer>
 
   <script>
@@ -81,7 +86,7 @@
       gallery.innerHTML = 'Loading...';
 
       try {
-        const res = await fetch(`https://lexica.art/api/v1/search?q=${encodeURIComponent(prompt)}`);
+        const res = await fetch(`https://lexica-api.vercel.app/api/search?q=${encodeURIComponent(prompt)}`);
         const data = await res.json();
         gallery.innerHTML = '';
 
@@ -92,6 +97,7 @@
         });
       } catch (error) {
         gallery.innerHTML = 'Gagal mengambil gambar.';
+        console.error(error);
       }
     }
   </script>
